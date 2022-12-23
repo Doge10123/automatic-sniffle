@@ -1,0 +1,29 @@
+
+local Temp = game.Workspace:WaitForChild("Values").Temp -- this code tells the computer whech folder has values the value is Temp.
+local ClickDetector1 = script.Parent:WaitForChild("Control rod up").ClickDetector -- this code tells the computer witch clickDetector it is.
+local ClickDetector2 = script.Parent:WaitForChild("Control rod down").ClickDetector -- this code tells the computer witch clickDetector it is.
+local db = false
+
+ClickDetector1.MouseClick:Connect(function()
+	if db ~= true then 
+		db = true
+		for i = 1,30 do --minimum temp/max temp
+			Temp.Value = Temp.Value + 1
+			wait(.2)
+		end
+		wait(6)
+		db = false
+	end
+end)
+
+ClickDetector2.MouseClick:Connect(function()
+	if db ~= true then 
+		db = true
+		for i = 1,25 do --minimum temp/max temp
+			Temp.Value = Temp.Value - 1
+			wait(.2)
+		end
+		wait(5)
+		db = false
+    end
+end)
